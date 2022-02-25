@@ -1,0 +1,9 @@
+<div>
+    <ul>
+        <li *ngFor="let item of menuItem"> 
+            <a style="text-decoration: none" [routerLink]="[item.url]">
+                {{item.label}}
+            </a>
+        </li>
+    </ul>
+</div>
