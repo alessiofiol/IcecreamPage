@@ -10,7 +10,8 @@ export class NavbarComponent implements OnInit {
 
   public menuItem: Menuitem[] = [
     { label: 'home', url: '/' },
-    { label: 'helados', url: '/helados' }
+    { label: 'helados', url: '/helados' },
+    { label: 'login', url: '/login' },
   ]
 
   constructor() { }
