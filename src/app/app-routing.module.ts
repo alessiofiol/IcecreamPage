@@ -1,5 +1,7 @@
 
 
+
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -14,7 +16,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./users/routing/users-routing.module').then(module => module.UsersRoutingModule)
+    loadChildren: () => import('./users/login-area/login/ruta/login-routing.module').then(module => module.LoginRoutingModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./users/login-area/register/register/register-routing.module').then(module => module.RegisterRoutingModule)
   },
   
   { path: ``, redirectTo: `home`, pathMatch: `full` }

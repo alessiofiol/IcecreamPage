@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 
 
+
 @NgModule({
   declarations: [
     FooterComponent,
@@ -13,7 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    
   ],
   exports: [
     NavbarComponent,
