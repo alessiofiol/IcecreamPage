@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       "name": "",
       "email": this.LoginForm.get('email')!.value,
       "password": this.LoginForm.get('password')!.value
-    }).subscribe();
+    });
 
     console.log("Usuario logado");
 

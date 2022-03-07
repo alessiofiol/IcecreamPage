@@ -4,6 +4,10 @@
             <a style="text-decoration: none" [routerLink]="[item.url]">
                 {{item.label}}
             </a>
+            
         </li>
+
+        <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" >Logout</li>
+
     </ul>
 </div>
