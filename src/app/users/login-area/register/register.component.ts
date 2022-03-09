@@ -1,7 +1,10 @@
+import { UserInterface } from './../../../Models/user.model';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserServices } from 'src/app/servicios/servicios.service';
 import { Router } from '@angular/router';
+import { comparePassword } from '../validators/matchValidators';
+
 
 @Component({
   selector: 'app-register',
@@ -10,11 +13,57 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userServices: UserServices, public router:Router) { }
+  public registerForm: FormGroup;
+  public submitted: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, public router:Router, public userServices: UserServices) { 
+    this.registerForm = this.formBuilder.group({
+      _id: [''],
+      name: ['', [Validators.required, Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(5), Validators.pattern('[a-zA-Z0-9]*')]],
+      repassword: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(5), Validators.pattern('[a-zA-Z0-9]*')]]
+    },{
+      validator: comparePassword("password", "repassword")
+    })
+  }
 
   ngOnInit(): void {
   }
 
+  public createNewUserSubmit(): void{
+    console.log("primera linea")
+    this.submitted = true;
+
+    if(this.registerForm.valid){
+      const user: UserInterface = {
+        _id: "",
+        name: this.registerForm.get('name')?.value,
+        email: this.registerForm.get('email')?.value,
+        password: this.registerForm.get('password')?.value,
+        //repassword: this.registerForm.get('repassword')?.value,
+        };
+        console.log("USUARIO", user);   
+        console.log("createNewUserSubmit");
+        this.userServices.createNewUser( user );
+
+
+
+        this.registerForm.reset();
+        this.submitted = false;
+
+        
+        
+      }
+      
+    }
+
+  }
+
+
+
+
+  /*
   UserForm = new FormGroup({
     name: new FormControl(''),
     email: new FormControl(''),
@@ -28,7 +77,8 @@ export class RegisterComponent implements OnInit {
       "_id": "",
       "name": this.UserForm.get('name')!.value,
       "email": this.UserForm.get('email')!.value,
-      "password": this.UserForm.get('password')!.value
+      "password": this.UserForm.get('password')!.value,
+      "repassword": this.UserForm.get('repassword')!.value,
     }).subscribe((res:any)=>{
       if (res.result) {
       this.UserForm?.reset();
@@ -38,5 +88,5 @@ export class RegisterComponent implements OnInit {
 
     console.log("Nuevo usuario registrado");
   }
-  
-}
+  */
+

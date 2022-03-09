@@ -22,7 +22,12 @@ export class UserServices {
   currentUser: Object = {};
 
   createNewUser(datos:UserInterface) {
-    return this.http.post(this.userUrl + '/' + 'registerUser', datos)
+    console.log("USUARIO datos",    JSON.stringify(datos)  );   
+
+     this.http.post<any>(this.userUrl + '/' + 'registerUser', 
+    datos).subscribe((res)=>{
+       console.log(res);
+     })
   }
 
   /*logUser(datos:UserI) {

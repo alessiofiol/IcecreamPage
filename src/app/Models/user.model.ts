@@ -2,5 +2,6 @@ export interface UserInterface {
     _id: string,
     name: string,
     email: string,
-    password: string
+    password: string,
+    //repassword: string,
 }
