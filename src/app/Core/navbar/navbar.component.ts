@@ -11,10 +11,9 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   public menuItem: Menuitem[] = [
-    { label: 'home', url: '/' },
-    { label: 'helados', url: '/helados' },
-    { label: 'login', url: '/login' },
-    { label: 'registro', url: '/registro' },
+    { label: 'Home', url: '/' },
+    { label: 'Helados', url: '/helados' },
+   
     
   ]
   
@@ -30,4 +29,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([''])
     }
   }
+
+  navLogin() {
+    this.router.navigateByUrl('/login');
+  };
+
+  navRegister() {
+    this.router.navigateByUrl('/registro');
+  };
 }

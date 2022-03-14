@@ -11,8 +11,11 @@ import { Router } from '@angular/router';
 @Injectable()
 
 export class UserServices {
+    //URL de Heroku
+   //public baseUrl = 'https://apiserverfinal.herokuapp.com/';
 
-   public baseUrl = 'https://apiserverfinal.herokuapp.com/';
+    //URL Local
+    public baseUrl = 'http://localhost:5000/';
 
    public userUrl = this.baseUrl + 'users'
   
@@ -34,12 +37,11 @@ export class UserServices {
     return this.http.post(userUrl + '/' + 'signin', datos)
   }*/
 
-    public logUser(datos: UserI)
-  {
-  return this.http.post<any>(`${this.userUrl}/signin`, datos).subscribe((res)=>{
-  localStorage.setItem('access_token', res.token)
-  this.currentUser = res;
-  this.router.navigate([''])
+  public logUser(datos: UserI){
+    return this.http.post<any>(`${this.userUrl}/signin`, datos).subscribe((res)=>{
+    localStorage.setItem('access_token', res.token)
+    this.currentUser = res;
+    this.router.navigate([''])
   })
   }
 

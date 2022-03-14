@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup;
   public submitted: boolean = false;
+  showMsg: boolean = false;
 
   constructor(private formBuilder: FormBuilder, public router:Router, public userServices: UserServices) { 
     this.registerForm = this.formBuilder.group({
@@ -31,11 +32,23 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  //Función para el botón de Login que aparece al registrarse 
+  btnClick=  () => {
+    this.router.navigateByUrl('/login');
+  };
+  
+
   public createNewUserSubmit(): void{
     console.log("primera linea")
     this.submitted = true;
 
+    
+
     if(this.registerForm.valid){
+
+      
+
       const user: UserInterface = {
         _id: "",
         name: this.registerForm.get('name')?.value,
@@ -48,10 +61,10 @@ export class RegisterComponent implements OnInit {
         this.userServices.createNewUser( user );
 
 
-
+        this.showMsg= true;
         this.registerForm.reset();
         this.submitted = false;
-
+        //this.router.navigate(['/login']);
         
         
       }
@@ -62,31 +75,4 @@ export class RegisterComponent implements OnInit {
 
 
 
-
-  /*
-  UserForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''), 
-  })
-
-  createNewUser() {
-    
-
-    this.userServices.createNewUser({
-      "_id": "",
-      "name": this.UserForm.get('name')!.value,
-      "email": this.UserForm.get('email')!.value,
-      "password": this.UserForm.get('password')!.value,
-      "repassword": this.UserForm.get('repassword')!.value,
-    }).subscribe((res:any)=>{
-      if (res.result) {
-      this.UserForm?.reset();
-      this.router.navigate(['/login'])
-      }
-      });
-
-    console.log("Nuevo usuario registrado");
-  }
-  */
 

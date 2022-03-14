@@ -12,7 +12,7 @@
         (registerForm.get('name')?.dirty || submitted)
         "
     >
-        <p>Solo se permiten caracteres, hasta un máximo de 20</p>
+        <p>Solo se permiten caracteres de tipo letra, hasta un máximo de 20</p>
     </div>
   
 
@@ -70,6 +70,11 @@
     <br> 
 
     <button type="submit" [disabled]="!registerForm?.valid">Registrate</button> 
+
+    <div *ngIf="showMsg">
+        <p>Formulario creado exitosamente, vamos a</p>
+        <button (click)="btnClick()">Login</button>
+    </div>
 
 </form>
 
