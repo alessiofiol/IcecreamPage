@@ -1,0 +1,52 @@
+<p>crearhelado works!</p>
+
+<div *ngFor="let item of saboresList; index as i">
+    <p>{{item.sabor}}</p>
+   </div>
+   
+   <p>
+     <select name="miselect" [(ngModel)]="seleccionado">
+     <option [value]="item.image" *ngFor="let item of saboresList[0]">{{item.sabor}}</option>
+     </select>
+     </p>
+     
+     <img src="{{seleccionado}}"  alt="imagencono">
+     
+   
+   
+   <form novalidate (ngSubmit)="onSubmit()" [formGroup]="saborform">
+     <table class="table table-hover">
+       <thead>
+           <tr>
+               <th></th>
+               
+           </tr>
+       </thead>
+       <tbody>
+       <th><h4>Sabores Favoritos</h4></th>
+       <tr *ngFor="let sabor of saboresList[0]"> 
+         <th>
+       <input
+           [value]="sabor.sabor"
+           type="checkbox"
+           class="saborlist"
+           [checked]="sabor.select"
+           [value]="sabor.sabor"
+           (change)="onchangesabor($event)"
+           >
+         </th>
+       
+       <td>{{sabor.sabor}}</td>
+   
+       </tr>
+     </tbody>
+     </table>
+       <button class="btn btn-primary" type="submit" ><p></p>
+         Register
+         <p></p>
+     </button>
+   
+   
+   </form>
+   
+   

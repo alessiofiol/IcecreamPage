@@ -11,7 +11,8 @@ import { RutaHomeRoutingModule } from './ruta-home-routing.module';
   ],
   imports: [
     CommonModule,
-    RutaHomeRoutingModule
+    RutaHomeRoutingModule,
+
   ]
 })
 export class RutaHomeModule { }

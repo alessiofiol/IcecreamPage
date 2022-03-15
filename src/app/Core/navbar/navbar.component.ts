@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
     { label: 'helados', url: '/helados' },
     { label: 'login', url: '/login' },
     { label: 'registro', url: '/registro' },
-    
+    { label: 'crearhelados', url: '/crearhelados' },
+
   ]
   
 
