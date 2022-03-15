@@ -1,3 +1,5 @@
+import { AuthGuard } from './Core/guards/auth.guard';
+
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -22,6 +24,10 @@ const routes: Routes = [
   {
     path: 'crearhelados',
     loadChildren: () => import('./Pages/crearhelado/ruta-crearhelado/ruta-crearhelado.module').then(module => module.RutaCrearheladoModule)
+  },
+  {path: 'perfil/_id',
+    loadChildren: () => import('./users/perfil/ruta/perfil.module').then(module => module.PerfilModule),
+    canActivate: [AuthGuard]
   },
   
   { path: ``, redirectTo: `home`, pathMatch: `full` }

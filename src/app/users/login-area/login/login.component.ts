@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
   }
 
   public logUserSubmit(): void{
+    
+    
+    
     console.log("primera linea")
     this.submitted = true;
 
@@ -40,8 +43,8 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
 
       const userI: UserI = {
-        //_id: "",
-        //name: "",
+        _id: "",
+        name: "",
         email: this.loginForm.get('email')?.value,
         password: this.loginForm.get('password')?.value,
         //repassword: this.loginForm.get('repassword')?.value,
