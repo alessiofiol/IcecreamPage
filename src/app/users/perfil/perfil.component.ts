@@ -5,14 +5,15 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  styleUrls: ['./perfil.component.css'],
+  providers: [UserServices]
 })
 export class PerfilComponent implements OnInit {
 
   currentUser: any = {};
   
 
-  constructor(public userServices: UserServices, private actRoute: ActivatedRoute) {
+  constructor(private userServices: UserServices, private actRoute: ActivatedRoute) {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.userServices.getUserProfile(id!).subscribe(res => {
       this.currentUser = res.msg;
