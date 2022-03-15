@@ -13,13 +13,7 @@ export class NavbarComponent implements OnInit {
   public menuItem: Menuitem[] = [
     { label: 'home', url: '/' },
     { label: 'helados', url: '/helados' },
-    { label: 'login', url: '/login' },
-    { label: 'registro', url: '/registro' },
     { label: 'crearhelados', url: '/crearhelados' },
-
-    { label: 'Home', url: '/' },
-    { label: 'Helados', url: '/helados' },
-   
     
   ]
   
