@@ -68,9 +68,9 @@ export class UserServices {
       })
   }
 
-  getUserProfile(id: string): Observable<any> {
+  getUserProfile(_id: string): Observable<any> {
     //let api = `https://apiserverfinal.herokuapp.com/users/622354817c41bb8038d8772c`;
-    let api = `${this.baseUrl}users/${id}`;
+    let api = `${this.baseUrl}users/${_id}`;
     //console.log(`${id}`)
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res: any) => {

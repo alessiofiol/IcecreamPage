@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./users/login-area/register/register/register.module').then(module => module.RegisterModule)
   },
   {
-    path: 'perfil/:id',
+    path: 'perfil/_id',
     loadChildren: () => import('./users/perfil/ruta/perfil.module').then(module => module.PerfilModule),
     canActivate: [AuthGuard]
   },
