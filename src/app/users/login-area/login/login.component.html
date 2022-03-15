@@ -1,19 +1,53 @@
 <h1>Formulario de login</h1>
 
-<form [formGroup]="LoginForm" (ngSubmit)='logUser()' > 
+<form [formGroup]="loginForm" (ngSubmit)='logUserSubmit()' > 
 
-    <label for="email">Email: </label>
-    <input id="email" type="text" formControlName="email">
+    <fieldset>
+        <label for="email">Email: </label>
+        <input id="email" type="text" formControlName="email">
+    </fieldset>
+    <div 
+    *ngIf="
+        !loginForm.get('email')?.valid && 
+        (loginForm.get('email')?.dirty || submitted)
+        "
+    >
+        <p>Introduce un correo válido</p>
+    </div>
 
     <br>
     <br>
   
-    <label for="password">Password: </label>
-    <input id="password" type="text" formControlName="password">
+    <fieldset>
+        <label for="password">Password: </label>
+        <input id="password" type="password" formControlName="password">
+    </fieldset>
+    <div 
+    *ngIf="
+        !loginForm.get('password')?.valid && 
+        (loginForm.get('password')?.dirty || submitted)
+        "
+    >
+        <p>Entre 5-8 caracteres</p>
+    </div>
 
     <br>
     <br>  
 
-    <button type="submit">Login</button> 
+    <fieldset>
+        <label for="repassword">Password: </label>
+        <input id="repassword" type="password" formControlName="repassword">
+    </fieldset>
+    <div 
+    *ngIf="
+        !loginForm.get('repassword')?.valid && 
+        (loginForm.get('repassword')?.dirty || submitted)
+        "
+    >
+        <p>La contraseña no coincide</p>
+    </div>
+
+
+    <button type="submit" [disabled]="!loginForm?.valid">Login</button>  
 
 </form>

@@ -1,12 +1,69 @@
-import { UserServices } from 'src/app/servicios/servicios.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UserI } from './../../../Models/user.login';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserServices } from 'src/app/servicios/servicios.service';
+import { Router } from '@angular/router';
+import { comparePassword } from '../validators/matchValidators';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+export class LoginComponent implements OnInit {
+
+  public loginForm: FormGroup;
+  public submitted: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, public router:Router, public userServices: UserServices) { 
+    this.loginForm = this.formBuilder.group({
+      _id: [''],
+      name: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(5), Validators.pattern('[a-zA-Z0-9]*')]],
+      repassword: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(5), Validators.pattern('[a-zA-Z0-9]*')]]
+    },{
+      validator: comparePassword("password", "repassword")
+    })
+  }
+
+  ngOnInit(): void {
+  }
+
+  public logUserSubmit(): void{
+    console.log("primera linea")
+    this.submitted = true;
+
+    
+
+    if(this.loginForm.valid){
+
+      const userI: UserI = {
+        //_id: "",
+        //name: "",
+        email: this.loginForm.get('email')?.value,
+        password: this.loginForm.get('password')?.value,
+        //repassword: this.loginForm.get('repassword')?.value,
+        };
+        console.log("USUARIO", userI);   
+        console.log("logUserSubmit");
+        this.userServices.logUser( userI );
+        console.log("paso el logUser");
+
+        
+        //this.loginForm.reset();
+        this.submitted = false;
+        //this.router.navigate(['/login']);
+        
+        
+      }
+      
+    }
+}
+
+
+/*
 export class LoginComponent implements OnInit {
 
   constructor(private userServices: UserServices) { }
@@ -33,3 +90,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+*/

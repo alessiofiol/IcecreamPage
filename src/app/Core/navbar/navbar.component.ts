@@ -17,6 +17,10 @@ export class NavbarComponent implements OnInit {
     { label: 'registro', url: '/registro' },
     { label: 'crearhelados', url: '/crearhelados' },
 
+    { label: 'Home', url: '/' },
+    { label: 'Helados', url: '/helados' },
+   
+    
   ]
   
 
@@ -31,4 +35,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([''])
     }
   }
+
+  navLogin() {
+    this.router.navigateByUrl('/login');
+  };
+
+  navRegister() {
+    this.router.navigateByUrl('/registro');
+  };
 }

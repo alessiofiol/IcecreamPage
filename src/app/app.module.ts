@@ -17,7 +17,7 @@ import { LoginModule } from './users/login-area/login/ruta/login.module';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
