@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   public menuItem: Menuitem[] = [
     { label: 'Home', url: '/' },
     { label: 'Helados', url: '/helados' },
+    { label: 'Perfil', url: '/perfil/:id' },
    
     
   ]
@@ -36,5 +37,9 @@ export class NavbarComponent implements OnInit {
 
   navRegister() {
     this.router.navigateByUrl('/registro');
+  };
+
+  navPerfil() {
+    this.router.navigateByUrl('/perfil');
   };
 }

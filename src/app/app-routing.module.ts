@@ -1,3 +1,5 @@
+import { AuthGuard } from './Core/guards/auth.guard';
+
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -18,6 +20,11 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./users/login-area/register/register/register.module').then(module => module.RegisterModule)
+  },
+  {
+    path: 'perfil/:id',
+    loadChildren: () => import('./users/perfil/ruta/perfil.module').then(module => module.PerfilModule),
+    canActivate: [AuthGuard]
   },
   
   { path: ``, redirectTo: `home`, pathMatch: `full` }
