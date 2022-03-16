@@ -22,10 +22,10 @@ const routes: Routes = [
     loadChildren: () => import('./users/login-area/register/register/register.module').then(module => module.RegisterModule)
   },
   {
-    path: 'crearhelados',
+    path: 'crearhelados/:id',
     loadChildren: () => import('./Pages/crearhelado/ruta-crearhelado/ruta-crearhelado.module').then(module => module.RutaCrearheladoModule)
   },
-  {path: 'perfil/_id',
+  {path: 'perfil/:id',
     loadChildren: () => import('./users/perfil/ruta/perfil.module').then(module => module.PerfilModule),
     canActivate: [AuthGuard]
   },

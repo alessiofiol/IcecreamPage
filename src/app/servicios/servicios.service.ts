@@ -1,15 +1,18 @@
+import { Token } from './../Models/token';
 import { UserI } from './../Models/user.login';
 import { UserInterface } from './../Models/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { throwError, Observable, catchError, map } from 'rxjs';
+import jwt_decode from "jwt-decode"
 
 
+@Injectable({
+  providedIn: 'root'
+})
 
 
-
-@Injectable()
 
 export class UserServices {
     //URL de Heroku
@@ -21,6 +24,8 @@ export class UserServices {
    public userUrl = this.baseUrl + 'users';
 
    public currentUser = {};//Aqui guardamos la respuesta del logUser, para comprobar si hay usuario
+
+   public currentID = "";
  
    headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -62,7 +67,11 @@ export class UserServices {
 				//Seteamos el token
         this.getUserProfile(res._id).subscribe((res) => {
           this.currentUser = res;
-          this.router.navigate(['perfil/' + res.msg._id]);
+          this.currentID = res.msg._id;
+          this.router.navigate(['perfil/' + res.msg._id])
+          .then(() => {
+            window.location.reload();
+          })
 				//Volvemos al user-profile una vez ejecutada la función
         })
       })
@@ -83,6 +92,20 @@ export class UserServices {
   //Funcion para recuperar el token a través del local storage
   public getToken() {
     return localStorage.getItem('access_token');
+  }
+
+  public getIdByToken() {
+    var token = localStorage.getItem('access_token');
+    if (token !== null) {
+    var decoded:Token;
+    console.log("aqui viene el toke");
+    decoded = jwt_decode(token!);
+    console.log(decoded);
+    console.log(decoded['userId'])
+    return decoded['userId']
+    } else {
+      return "1234"
+    }
   }
 
   //Comprueba si hay token en el local storage, es decir, si el usuario está locago

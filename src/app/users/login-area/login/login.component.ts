@@ -8,7 +8,8 @@ import { comparePassword } from '../validators/matchValidators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [UserServices]
 })
 
 export class LoginComponent implements OnInit {
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public submitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, public router:Router, public userServices: UserServices) { 
+  constructor(private formBuilder: FormBuilder, public router:Router, private userServices: UserServices) { 
     this.loginForm = this.formBuilder.group({
       _id: [''],
       name: [''],

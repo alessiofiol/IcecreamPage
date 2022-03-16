@@ -9,7 +9,8 @@ import { comparePassword } from '../validators/matchValidators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [UserServices]
 })
 export class RegisterComponent implements OnInit {
 

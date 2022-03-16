@@ -24,9 +24,9 @@ export class SaboresService {
     )
   }
 
-  public saborregister(sabor:userSabor) {
+  public saborregister(sabor:userSabor, id: any) {
 
-    return this.http.post(`${this.endpoint}/update-user/:_id`, sabor).pipe(
+    return this.http.put(`${this.endpoint}/users/update-user/${id}`, sabor).pipe(
       catchError(this.handleError)
     )
     }
