@@ -1,6 +1,11 @@
+import { AuthGuard } from './Core/guards/auth.guard';
+
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+
+
 
 const routes: Routes = [
   {
@@ -20,10 +25,13 @@ const routes: Routes = [
     loadChildren: () => import('./users/login-area/register/register/register.module').then(module => module.RegisterModule)
   },
   {
-    path: 'crearhelados',
+    path: 'perfil/:id',
+    loadChildren: () => import('./users/perfil/ruta/perfil.module').then(module => module.PerfilModule),
+    canActivate: [AuthGuard]
+  },
+ { path: 'crearhelados',
     loadChildren: () => import('./Pages/crearhelado/ruta-crearhelado/ruta-crearhelado.module').then(module => module.RutaCrearheladoModule)
   },
-  
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
 

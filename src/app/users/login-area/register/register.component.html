@@ -1,27 +1,80 @@
 <h1>Formulario de registro</h1>
 
-<form [formGroup]="UserForm" (ngSubmit)='createNewUser()' >
+<form novalidate [formGroup]="registerForm"  (ngSubmit)='createNewUserSubmit()'>
     
+    <fieldset>
+        <label for="name">Name: </label>
+        <input id="name" type="text" formControlName="name">
+    </fieldset>
+    <div 
+    *ngIf="
+        !registerForm.get('name')?.valid && 
+        (registerForm.get('name')?.dirty || submitted)
+        "
+    >
+        <p>Solo se permiten caracteres de tipo letra, hasta un máximo de 20</p>
+    </div>
   
-    <label for="name">Name: </label>
-    <input id="name" type="text" formControlName="name">
-  
+
     <br>
     <br>
 
-    <label for="email">Email: </label>
-    <input id="email" type="text" formControlName="email">
-
-    <br>
-    <br>
+    <fieldset>
+        <label for="email">Email: </label>
+        <input id="email" type="text" formControlName="email">
+    </fieldset>
+    <div 
+    *ngIf="
+        !registerForm.get('email')?.valid && 
+        (registerForm.get('email')?.dirty || submitted)
+        "
+    >
+        <p>Introduce un correo válido</p>
+    </div>
   
-    <label for="password">Password: </label>
-    <input id="password" type="password" formControlName="password">
 
+    <br>
+    <br>
+
+    <fieldset>
+        <label for="password">Password: </label>
+        <input id="password" type="password" formControlName="password">
+    </fieldset>
+    <div 
+    *ngIf="
+        !registerForm.get('password')?.valid && 
+        (registerForm.get('password')?.dirty || submitted)
+        "
+    >
+        <p>Entre 5-8 caracteres</p>
+    </div>
+   
     <br>
     <br>  
 
-    <button type="submit">Registrate</button> 
+    <fieldset>
+        <label for="repassword">Password: </label>
+        <input id="repassword" type="password" formControlName="repassword">
+    </fieldset>
+    <div 
+    *ngIf="
+        !registerForm.get('repassword')?.valid && 
+        (registerForm.get('repassword')?.dirty || submitted)
+        "
+    >
+        <p>La contraseña no coincide</p>
+    </div>
+    
+
+    <br>
+    <br> 
+
+    <button type="submit" [disabled]="!registerForm?.valid">Registrate</button> 
+
+    <div *ngIf="showMsg">
+        <p>Formulario creado exitosamente, vamos a</p>
+        <button (click)="btnClick()">Login</button>
+    </div>
 
 </form>
 
