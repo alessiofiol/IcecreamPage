@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class SaboresService {
-  endpoint: string = 'https://apiserverfinal.herokuapp.com';
+  // endpoint: string = 'https://apiserverfinal.herokuapp.com';
+  endpoint: string = 'http://localhost:5000';
+
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient, public router: Router) { }

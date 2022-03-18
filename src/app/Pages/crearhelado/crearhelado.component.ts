@@ -44,8 +44,9 @@ public seleccionado: string[] =[];
     let id = this.actRoute.snapshot.paramMap.get('id')
     this.saboreservice.saborregister(saborregister, id).subscribe((res:any)=>{
      
+       
         this.router.navigate([''])
-      
+      console.log(res)
     })
     this.saborform.reset();
     this.submitted = false;

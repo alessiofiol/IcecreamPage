@@ -16,10 +16,10 @@ import jwt_decode from "jwt-decode"
 
 export class UserServices {
     //URL de Heroku
-    public baseUrl = 'https://apiserverfinal.herokuapp.com/';
+    // public baseUrl = 'https://apiserverfinal.herokuapp.com/';
 
     //URL Local
-    //public baseUrl = 'http://localhost:5000/';
+    public baseUrl = 'http://localhost:5000/';
 
    public userUrl = this.baseUrl + 'users';
 
