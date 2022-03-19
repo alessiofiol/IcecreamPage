@@ -1,53 +1,87 @@
-<h1>Formulario de login</h1>
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">  
+                  <div class="text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAGV0jQYN95VQGhsOCxe_mH7ymzeHK6k2dng&usqp=CAU" style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">Formulario de Login</h4>
+                  </div>
 
-<form [formGroup]="loginForm" (ngSubmit)='logUserSubmit()' > 
+                    <form [formGroup]="loginForm" (ngSubmit)='logUserSubmit()' >                       
+                        
+                        <div class="form-outline mb-4">
+                            <input type="email" id="email" class="form-control" formControlName="email" placeholder="Introduzca su email"/>
+                            <label class="form-label" for="email"></label>
+                        </div>
+                        <div class="alert alert-warning" 
+                            *ngIf="
+                                !loginForm.get('email')?.valid && 
+                                (loginForm.get('email')?.dirty || submitted)
+                                "
+                            >
+                                <p>Introduce un correo válido</p>
+                        </div>
 
-    <fieldset>
-        <label for="email">Email: </label>
-        <input id="email" type="text" formControlName="email">
-    </fieldset>
-    <div 
-    *ngIf="
-        !loginForm.get('email')?.valid && 
-        (loginForm.get('email')?.dirty || submitted)
-        "
-    >
-        <p>Introduce un correo válido</p>
+                        <br>
+                        <br>                        
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="password" class="form-control" formControlName="password" placeholder="Introduzca su contraseña"/>
+                            <label class="form-label" for="password"></label>
+                        </div>
+                        <div class="alert alert-warning"
+                            *ngIf="
+                                !loginForm.get('password')?.valid && 
+                                (loginForm.get('password')?.dirty || submitted)
+                                "
+                            >
+                                <p>Entre 5-8 caracteres</p>
+                        </div>
+
+                        <br>
+                        <br>  
+                        
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="repassword" class="form-control" formControlName="repassword" placeholder="Repita su contraseña"/>
+                            <label class="form-label" for="repassword"></label>
+                        </div>
+                        <div class="alert alert-warning"
+                            *ngIf="
+                                !loginForm.get('repassword')?.valid && 
+                                (loginForm.get('repassword')?.dirty || submitted)
+                                "
+                            >
+                                <p>La contraseña no coincide</p>
+                        </div>
+
+
+
+
+                        <button type="submit" [disabled]="!loginForm?.valid" class="btn btn-primary btn-block mb-4">Login</button>  
+
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                            <p class="mb-0 me-2">¿Aún no tienes cuenta?</p>
+                            <button type="button" class="btn btn-outline-danger" (click)="navRegister()">Registrate</button>
+                        </div>
+
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">We are more than just a company</h4>
+                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <br>
-    <br>
-  
-    <fieldset>
-        <label for="password">Password: </label>
-        <input id="password" type="password" formControlName="password">
-    </fieldset>
-    <div 
-    *ngIf="
-        !loginForm.get('password')?.valid && 
-        (loginForm.get('password')?.dirty || submitted)
-        "
-    >
-        <p>Entre 5-8 caracteres</p>
-    </div>
-
-    <br>
-    <br>  
-
-    <fieldset>
-        <label for="repassword">Password: </label>
-        <input id="repassword" type="password" formControlName="repassword">
-    </fieldset>
-    <div 
-    *ngIf="
-        !loginForm.get('repassword')?.valid && 
-        (loginForm.get('repassword')?.dirty || submitted)
-        "
-    >
-        <p>La contraseña no coincide</p>
-    </div>
-
-
-    <button type="submit" [disabled]="!loginForm?.valid">Login</button>  
-
-</form>
+  </div>
+</section>

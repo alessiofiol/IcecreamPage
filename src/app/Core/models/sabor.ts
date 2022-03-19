@@ -7,6 +7,7 @@ export interface Sabor {
 
     export interface userSabor 
     {
+        
         sabor: string
     }
 

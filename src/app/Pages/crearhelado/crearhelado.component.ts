@@ -53,7 +53,6 @@ public seleccionado: string[] =[];
     }
 
 
-public imagencono : string ='' 
   public saborselection:any = []; 
 
   onchangesabor ($event:any) {

@@ -7,9 +7,13 @@
             
         </li>
 
-        <li *ngIf="!this.userServices.isLoggedin()" (click)="navRegister()" style="cursor: pointer;">Registro</li>   
+           
 
-        <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer;">Login</li>          
+        <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer;">Login</li> 
+        
+        <li *ngIf="this.userServices.isLoggedin()" (click)="navPerfil()" style="cursor: pointer;">Perfil</li>
+
+        <li *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer;">Crea tu helado</li>
         
         <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" style="cursor: pointer;">Cerrar sesion</li>        
 
