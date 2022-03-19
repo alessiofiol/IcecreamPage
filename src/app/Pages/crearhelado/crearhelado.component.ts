@@ -2,7 +2,7 @@ import { Sabor, userSabor } from 'src/app/Core/models/sabor';
 import { SaboresService } from './../../Core/services/sabores.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-crearhelado',
@@ -16,7 +16,7 @@ export class CrearheladoComponent implements OnInit {
   public Saboreslistselect: any[]=[];
 public seleccionado: string[] =[];
 
-  constructor(public saboreservice: SaboresService, private formbuilder:FormBuilder, public router: Router) {
+  constructor(public saboreservice: SaboresService, private formbuilder:FormBuilder, public router: Router, private actRoute: ActivatedRoute) {
     this.saborform = this.formbuilder.group({
       saboradd: String,
       
@@ -41,11 +41,12 @@ public seleccionado: string[] =[];
     {
       sabor: this.saborselection,
     };
-    this.saboreservice.saborregister(saborregister).subscribe((res:any)=>{
+    let id = this.actRoute.snapshot.paramMap.get('id')
+    this.saboreservice.saborregister(saborregister, id).subscribe((res:any)=>{
      
        
         this.router.navigate([''])
-      
+      console.log(res)
     })
     this.saborform.reset();
     this.submitted = false;
@@ -53,7 +54,6 @@ public seleccionado: string[] =[];
     }
 
 
-public imagencono : string ='' 
   public saborselection:any = []; 
 
   onchangesabor ($event:any) {
