@@ -1,7 +1,7 @@
 <div>
-    <ul class="navbar nav">
-        <li *ngFor="let item of menuItem"> 
-            <a style="text-decoration: none" [routerLink]="[item.url]">
+    <ul class="navbar bg-black justify-content-end">
+        <li style="list-style: none"class="nav-item"  *ngFor="let item of menuItem"> 
+            <a class="link-info" style="text-decoration: none" [routerLink]="[item.url]">
                 {{item.label}}
             </a>
             
