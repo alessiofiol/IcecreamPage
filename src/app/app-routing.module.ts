@@ -17,6 +17,14 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/helados/ruta-helados/ruta-helados.module').then(module => module.RutaHeladosModule)
   },
   {
+    path: 'sabores',
+    loadChildren: ()=>import('./Pages/helados/sabores/ruta-sabores/sabores.module').then(module=> module.SaboresModule)
+  },
+  {
+    path:'especialidades',
+    loadChildren: ()=>import('./Pages/helados/especialidades/ruta-especialidades/especialidades.module').then(module=>module.EspecialidadesModule)
+  },
+  {
     path: 'login',
     loadChildren: () => import('./users/login-area/login/ruta/login.module').then(module => module.LoginModule)
   },

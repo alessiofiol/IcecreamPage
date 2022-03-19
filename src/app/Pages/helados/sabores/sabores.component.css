@@ -1,0 +1,63 @@
+
+
+h1{
+  font-family: fantasy;
+  color:black;
+  font-weight:bold;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 60px;
+  color: rgb(56, 9, 9);
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: bisque;
+  justify-content: center;
+
+
+}
+
+.search{
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  width: 300%;
+  margin: 1rem auto;
+  align-content: center;
+  padding: 1rem;
+  border-radius: 14px;
+  }
+
+.search_name{
+  color:rgb(16, 16, 17);
+  font-weight: 700;
+  font-size: large;
+  }
+
+.card{
+  justify-content:center;
+  padding:14px;
+  align-items: center;
+  margin:20px;
+  width:300px;
+  height:400px;
+  border: 0ch;
+  background-color: bisque;
+}
+
+h3{
+  align-content: center;
+  font-weight: 800;
+  font-size: large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rgb(56, 9, 9);
+}
+
+p{
+  text-align: justify;
+  font-family:cursive;
+  color: rgb(56, 9, 9);
+}
+

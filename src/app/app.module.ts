@@ -15,12 +15,15 @@ import { LoginModule } from './users/login-area/login/ruta/login.module';
 
 
 
+
+
 @NgModule({
-  declarations: [  
-    AppComponent, 
+  declarations: [
+    AppComponent
+
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,
     AppRoutingModule,
     CoreModule,
     HttpClientModule,

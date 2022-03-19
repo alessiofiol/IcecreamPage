@@ -1,0 +1,21 @@
+
+
+<div class="container">
+  <h1>Especialidades</h1>
+  <div class="search">
+    <div class="search_name">
+      <label for="searchName">Busca tu especialidad....</label>
+      <input type="text"
+      class="search_input"
+      placeholder="Busca tu especialidad..."
+      #txtSearch
+      (keyup)="onSearchEspecialidades(txtSearch.value)"/>
+    </div>
+  </div>
+
+  <div class="card" *ngFor="let especialidades of especialidadesList | filterespecial: search">
+
+    <img src="{{especialidades.image}}" alt="{{especialidades.sabor}}">
+    <p>{{especialidades.descripcion}}</p>
+   </div>
+</div>

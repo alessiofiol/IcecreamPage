@@ -1,0 +1,24 @@
+
+
+
+  <div class="container">
+    <h1>Sabores</h1>
+    <div class="search">
+      <div class="search_name">
+        <label for="searchName">Busca tu sabor....</label>
+        <input type="text"
+        class="search_input"
+        placeholder="Busca tu sabor..."
+        #txtSearch
+        (keyup)="onSearchSabor(txtSearch.value)"/>
+      </div>
+    </div>
+
+    <div class="card" *ngFor="let sabores of saboresList | filtersabor: search">
+      <h3>{{sabores.sabor}}</h3>
+
+      <img src="{{sabores.image}}" alt="{{sabores.sabor}}">
+      <p>{{sabores.descripcion}}</p>
+    </div>
+
+  </div>
