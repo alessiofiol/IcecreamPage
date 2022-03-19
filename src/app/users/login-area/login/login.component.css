@@ -20,3 +20,10 @@
       border-bottom-right-radius: .3rem;
     }
   }
+
+  .gradient-custom-1 {
+
+    background: #861657;
+
+    background: linear-gradient(326deg, #861657 0%, #ffa69e 74%);
+  }

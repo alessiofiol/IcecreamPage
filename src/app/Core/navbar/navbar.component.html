@@ -1,6 +1,6 @@
 <div>
-    <ul class="navbar bg-black justify-content-end">
-        <li style="list-style: none"class="nav-item"  *ngFor="let item of menuItem"> 
+    <ul >
+        <li style="list-style: none" class="nav-item"  *ngFor="let item of menuItem"> 
             <a class="link-info" style="text-decoration: none" [routerLink]="[item.url]">
                 {{item.label}}
             </a>
@@ -9,13 +9,13 @@
 
            
 
-        <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer;">Login</li> 
+        <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer; list-style: none" class="nav-item" >Login</li> 
         
-        <li *ngIf="this.userServices.isLoggedin()" (click)="navPerfil()" style="cursor: pointer;">Perfil</li>
+        <li *ngIf="this.userServices.isLoggedin()" (click)="navPerfil()" style="cursor: pointer; list-style: none" class="nav-item" >Perfil</li>
 
-        <li *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer;">Crea tu helado</li>
+        <li *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer; list-style: none" class="nav-item" >Crea tu helado</li>
         
-        <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" style="cursor: pointer;">Cerrar sesion</li>        
+        <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" style="cursor: pointer; list-style: none" class="nav-item">Cerrar sesion</li>        
 
     </ul>
 </div>
