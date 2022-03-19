@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
     { label: 'Home', url: '/' },
     { label: 'Helados', url: '/helados' },
     { label: 'Perfil', url: '/perfil/' + this.userServices.getIdByToken()},
-    { label: 'crearhelados', url: '/crearhelados' },
+    { label: 'crearhelados', url: '/crearhelados/'+ this.userServices.getIdByToken() },
 
    
     //El problema es que la ruta no se actualiza, no se actualiza al logear, porque al principio del todo no hay token, por eso la ruta no funciona

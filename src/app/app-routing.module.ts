@@ -29,7 +29,7 @@ const routes: Routes = [
     loadChildren: () => import('./users/perfil/ruta/perfil.module').then(module => module.PerfilModule),
     canActivate: [AuthGuard]
   },
- { path: 'crearhelados',
+ { path: 'crearhelados/:id',
     loadChildren: () => import('./Pages/crearhelado/ruta-crearhelado/ruta-crearhelado.module').then(module => module.RutaCrearheladoModule)
   },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
