@@ -1,6 +1,6 @@
 
 
-.container-xxl{
+.gradient-custom-1{
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -8,7 +8,7 @@
 
 
 }
-.container-bis{
+.container{
   margin:40px;
 }
 h2{

@@ -10,7 +10,7 @@ h1{
   color: rgb(56, 9, 9);
 }
 
-.container-xxl{
+.gradient-custom-1{
   display: flex;
   flex-wrap: wrap;
   background-color: bisque;
