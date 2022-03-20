@@ -2,15 +2,15 @@
 
 <div *ngFor="let item of saboresList; index as i">
     <p>{{item.sabor}}</p>
-   </div>
+</div>
    
    <p>
      <select name="miselect" [(ngModel)]="seleccionado">
      <option [value]="item.image" *ngFor="let item of saboresList[0]">{{item.sabor}}</option>
      </select>
-     </p>
+    </p>
      
-     <img src="{{seleccionado}}"  alt="imagencono">
+    <img src="{{seleccionado}}"  alt="imagenCono">
      
    
    
@@ -47,6 +47,13 @@
      </button>
    
    
-   </form>
+</form>
    
-   
+  
+<div class="card-deck">
+  <div class="card" style="width: 18rem;" *ngFor="let sabor of this.saboresList[0]">
+      <div class="card-body">
+          <p class="card-text">{{sabor.sabor}}</p> 
+      </div>
+  </div>
+</div>

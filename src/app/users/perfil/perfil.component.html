@@ -5,3 +5,16 @@
     <p>Id: {{this.currentUser?._id}}</p>
     <p>Sabor: {{this.currentUser?.sabor}}</p>
 </div>
+
+
+    <div class="card-deck">
+        <div class="card" style="width: 18rem;" *ngFor="let sabor of this.currentUser.sabor">
+            <div class="card-body">
+                <p class="card-text">{{sabor}}</p> 
+            </div>
+        </div>
+    </div>
+    
+
+
+<!--<button (click)="saboresUsuario()">Sabores</button> -->

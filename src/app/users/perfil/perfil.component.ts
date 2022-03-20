@@ -24,4 +24,11 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*saboresUsuario (){
+    console.log(this.currentUser?.sabor);
+    this.currentUser?.sabor.forEach((element: any) => {
+      console.log(element);
+    });
+  }
+  */
 }
