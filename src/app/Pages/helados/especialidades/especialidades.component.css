@@ -12,7 +12,7 @@ h1{
 .gradient-custom-1{
   display: flex;
   flex-wrap: wrap;
-  background-color: bisque;
+  background-color: #E6D2B4;
   justify-content: center;
 }
 
@@ -29,7 +29,7 @@ h1{
 
 .search_name{
 
-  color:rgb(16, 16, 17);
+  color:rgb(56, 9, 9);
   font-weight: 700;
   font-size: large;
 }

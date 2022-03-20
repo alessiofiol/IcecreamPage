@@ -1,21 +1,36 @@
-<div>
-    <ul >
-        <li style="list-style: none" class="nav-item"  *ngFor="let item of menuItem"> 
+<nav class="navbar">
+  <div class="navbar-container container">
+
+    <input type="checkbox" name="" id="">
+    <div class="hamburger-lines">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+    </div>
+
+
+<div class="logo">
+  <img src="https://i.pinimg.com/originals/13/dd/86/13dd861b67acc6e4bba44d93db4fc1ee.png" alt="logo">
+  </div>
+
+
+  <ul class="menu-items">
+        <li style="list-style: none" class="nav-item"  *ngFor="let item of menuItem">
             <a class="link-info" style="text-decoration: none" [routerLink]="[item.url]">
                 {{item.label}}
             </a>
-            
+
         </li>
 
-           
+        <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer; list-style: none" class="nav-item" >Login</li>
 
-        <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer; list-style: none" class="nav-item" >Login</li> 
-        
         <li *ngIf="this.userServices.isLoggedin()" (click)="navPerfil()" style="cursor: pointer; list-style: none" class="nav-item" >Perfil</li>
 
         <li *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer; list-style: none" class="nav-item" >Crea tu helado</li>
-        
-        <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" style="cursor: pointer; list-style: none" class="nav-item">Cerrar sesion</li>        
+
+        <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" style="cursor: pointer; list-style: none" class="nav-item">Cerrar sesion</li>
 
     </ul>
-</div>
+  </div>
+
+</nav>

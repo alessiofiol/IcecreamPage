@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  background-color: bisque;
+  background-color: #E6D2B4;
 
 
 }
@@ -16,7 +16,7 @@ h2{
   text-align: center;
   align-content: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color:rgb(56, 9, 9) ;
+  color:rgb(56, 9, 9);
 }
 .sabor{
   justify-content:center;
