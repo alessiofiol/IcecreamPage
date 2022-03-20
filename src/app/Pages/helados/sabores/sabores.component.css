@@ -13,7 +13,7 @@ h1{
 .gradient-custom-1{
   display: flex;
   flex-wrap: wrap;
-  background-color: bisque;
+  background-color: #DABC90;
   justify-content: center;
 
 
@@ -44,7 +44,7 @@ h1{
   width:300px;
   height:400px;
   border: 0ch;
-  background-color: bisque;
+  background-color: #DABC90;
 }
 
 h3{

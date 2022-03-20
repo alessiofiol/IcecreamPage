@@ -12,7 +12,7 @@ h1{
 .gradient-custom-1{
   display: flex;
   flex-wrap: wrap;
-  background-color: bisque;
+  background-color: #DABC90;
   justify-content: center;
 }
 
