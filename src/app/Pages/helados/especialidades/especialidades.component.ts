@@ -14,6 +14,7 @@ export class EspecialidadesComponent implements OnInit {
   public especialidadesUrl = this.baseUrl + 'especialidades';
   public especialidadesList:Ihelados [] =[];
   public search:string="";
+  public page:number= 0;
 
 
   constructor(public httpRequestService: HttpRequestService) { }
@@ -29,6 +30,13 @@ export class EspecialidadesComponent implements OnInit {
       this.especialidadesList=data;
   })
 
+  }
+  nextPage(){
+    this.page += 4;
+  }
+  prevPage(){
+    if(this.page>0)
+    this.page -= 4;
   }
 
   onSearchEspecialidades(search:string){

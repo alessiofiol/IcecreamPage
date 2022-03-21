@@ -3,7 +3,8 @@
     <p>Name: {{this.currentUser?.name}}</p>
     <p>Email: {{this.currentUser?.email}}</p>    
     <p>Id: {{this.currentUser?._id}}</p>
-    <p>Sabor: {{this.currentUser?.sabor}}</p>
+    <div *ngFor="let sabor of this.currentUser?.sabor">
+    <p >{{sabor.sabor}}</p> </div>
 </div>
 
 

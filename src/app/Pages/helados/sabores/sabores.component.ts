@@ -14,6 +14,7 @@ export class SaboresComponent implements OnInit {
 
   public saboresList:Ihelados []=[];
   public search:string ="";
+  public page:number= 0;
 
 
   constructor(public httpRequestService: HttpRequestService) { }
@@ -30,6 +31,14 @@ export class SaboresComponent implements OnInit {
 
     })
   }
+
+nextPage(){
+  this.page += 5;
+}
+prevPage(){
+  if(this.page>0)
+  this.page -= 5;
+}
 
   onSearchSabor(search:string){
     this.search = search;

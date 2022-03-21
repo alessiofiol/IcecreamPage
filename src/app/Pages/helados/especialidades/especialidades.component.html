@@ -13,9 +13,27 @@
     </div>
   </div>
 
-  <div class="card" *ngFor="let especialidades of especialidadesList | filterespecial: search">
+  <div class="card" *ngFor="let especialidades of especialidadesList | filterespecial:page:search">
 
     <img src="{{especialidades.image}}" alt="{{especialidades.sabor}}">
     <p>{{especialidades.descripcion}}</p>
    </div>
+
+
 </section>
+
+<div class="button-container">
+  <button
+  (click)="nextPage()"
+  [disabled]="(especialidadesList | filterespecial:page:search).length === 0">
+    Siguentes
+</button>
+  &nbsp;
+  <button
+  (click)="prevPage()">
+  Anteriores
+  </button>
+</div>
+
+
+
