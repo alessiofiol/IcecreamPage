@@ -6,9 +6,13 @@ import { Ihelados } from 'src/app/Models/ihelados';
 })
 export class FiltersaborPipe implements PipeTransform {
 
-  transform(sabores:Ihelados[], search:string=""): Ihelados[] {
+  transform(sabores:Ihelados[], page:number=0,search:string=""): Ihelados[] {
+
+    if(search.length === 0)
+    return sabores.slice(page, page + 5);
+
     const filterSabores = sabores.filter(sabor=>sabor.sabor.includes(search));
-    return filterSabores;
+    return filterSabores.slice(page, page + 5);
   }
 
 }

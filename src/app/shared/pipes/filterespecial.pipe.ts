@@ -6,9 +6,13 @@ import { Ihelados } from 'src/app/Models/ihelados';
 })
 export class FilterespecialPipe implements PipeTransform {
 
-  transform(especialidades:Ihelados[], search:string=""): Ihelados[] {
+  transform(especialidades:Ihelados[], page:number=0, search:string=""): Ihelados[] {
+
+    if(search.length === 0)
+    return especialidades.slice(page, page + 4);
+
     const filterEspecialidades = especialidades.filter(especialidad=>especialidad.sabor.includes(search));
-    return filterEspecialidades;
+    return filterEspecialidades.slice(page, page + 4);
   }
 
 }

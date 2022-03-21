@@ -13,11 +13,23 @@
       </div>
     </div>
 
-    <div class="card" *ngFor="let sabores of saboresList | filtersabor: search">
+    <div class="card" *ngFor="let sabores of saboresList | filtersabor:page:search">
       <h3>{{sabores.sabor}}</h3>
 
       <img src="{{sabores.image}}" alt="{{sabores.sabor}}">
       <p>{{sabores.descripcion}}</p>
+    </div>
+    <div class="button">
+      <button
+      (click)="nextPage()"
+      [disabled]="(saboresList | filtersabor:page:search).length === 0">
+        Siguentes
+    </button>
+      &nbsp;
+      <button
+      (click)="prevPage()">
+      Anteriores
+      </button>
     </div>
 
 </section>

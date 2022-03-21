@@ -60,4 +60,16 @@ p{
   font-family:cursive;
   color: rgb(56, 9, 9);
 }
+button{
+  float:right;
+  width: 150px;
+  height: 60px;
+  background-color: rgb(56, 9, 9);
+  color:#E6D2B4;
+  font-weight: 900;
+  font-size: large;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
 
