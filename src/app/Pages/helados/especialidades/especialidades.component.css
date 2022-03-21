@@ -39,9 +39,12 @@ h1{
   padding:14px;
   align-items: center;
   margin:20px;
-  width:500px;
+  width:400px;
   height:300px;
   border: 0ch;
+}
+img{
+  width: 100%;
 }
 p{
   text-align: justify;
