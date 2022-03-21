@@ -25,7 +25,7 @@ public seleccionado: string[] =[];
     this.saboreservice.getSabores().forEach(element => {
      
       this.saboresList.push(element)
-      console.log(this.saboresList)
+      // console.log(this.saboresList)
      
   
     }); }
@@ -59,14 +59,30 @@ public seleccionado: string[] =[];
     const saboradd = $event.target.value;
     const ischecked = $event.target.checked;
 
+    let currentSaboresList: [any] = this.saboresList[0];
+
+    let currentSabor = currentSaboresList.find((sabor) => {
+      return sabor.sabor == saboradd;
+    })
+
   if (ischecked==true) {
-  this.saborselection.push(saboradd)
- 
-  
+    this.saborselection.push(currentSabor)
   } else {
-    this.saborselection.pop(saboradd)
+    let index = (this.saborselection as any[]).findIndex((value) => {
+
+      // console.log(value.sabor);
+      // console.log(currentSabor.sabor);
+
+      return value.sabor == currentSabor.sabor;
+  });
+
+    // console.log(index);
+    
+    if (index > -1) {
+    this.saborselection.splice(index, 1);
   }
-   console.log(this.saborselection)
+  }
+  //  console.log(this.saborselection)
   }
 
 }
