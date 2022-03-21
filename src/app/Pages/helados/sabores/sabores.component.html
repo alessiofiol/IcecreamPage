@@ -19,17 +19,17 @@
       <img src="{{sabores.image}}" alt="{{sabores.sabor}}">
       <p>{{sabores.descripcion}}</p>
     </div>
-    <div class="button">
-      <button
-      (click)="nextPage()"
-      [disabled]="(saboresList | filtersabor:page:search).length === 0">
-        Siguentes
-    </button>
-      &nbsp;
-      <button
-      (click)="prevPage()">
-      Anteriores
-      </button>
-    </div>
 
 </section>
+<div class="button-container">
+  <button
+  (click)="nextPage()"
+  [disabled]="(saboresList | filtersabor:page:search).length === 0">
+    Siguentes
+</button>
+  &nbsp;
+  <button
+  (click)="prevPage()">
+  Anteriores
+  </button>
+</div>
