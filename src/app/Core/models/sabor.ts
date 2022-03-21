@@ -3,6 +3,7 @@ export interface Sabor {
     sabor: string
     descripcion: string
     image: string
+    chooseByUser: boolean
     }
 
     export interface userSabor 

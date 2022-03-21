@@ -46,11 +46,13 @@ export class UserServices {
 
   /*createNewUser(datos: UserInterface): Observable<any> {
     let api = `${this.userUrl}registerUser`;
-    return this.http.post(api, datos)
+    console.log("entro a crear el user")
+    return this.http.post<any>(api, datos)
       .pipe(
         catchError(this.handleError)
       )
-  }/*
+    
+  }*/
 
   /*public logUser(datos: UserI){
     return this.http.post<any>(`${this.userUrl}/signin`, datos).subscribe((res)=>{
@@ -130,7 +132,7 @@ export class UserServices {
       // client-side error
       msg = error.error.message;
     } else {
-      // server-side error
+      // server-side errore 
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(msg);

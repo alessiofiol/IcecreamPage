@@ -11,6 +11,7 @@
         <div class="card" style="width: 18rem;" *ngFor="let sabor of this.currentUser.sabor">
             <div class="card-body">
                 <p class="card-text">{{sabor}}</p> 
+                <button type="button" class="btn btn-primary-outline pull-right" (click)="infoHelados();">Detalles</button>
             </div>
         </div>
     </div>

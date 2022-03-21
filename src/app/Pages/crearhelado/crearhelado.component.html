@@ -2,6 +2,7 @@
 
 <div *ngFor="let item of saboresList; index as i">
     <p>{{item.sabor}}</p>
+    <p>{{item.image}}</p>
 </div>
    
    <p>
@@ -54,6 +55,21 @@
   <div class="card" style="width: 18rem;" *ngFor="let sabor of this.saboresList[0]">
       <div class="card-body">
           <p class="card-text">{{sabor.sabor}}</p> 
+          <img class="card-text" src={{sabor.image}}>
+          <th>
+            <input
+                
+                [value]="sabor.sabor"
+                type="checkbox"
+                class="saborlist"
+                [checked]="sabor.select"
+                [value]="sabor.sabor"
+                (change)="onchangesabor($event)"
+                
+                >
+          </th>
       </div>
   </div>
 </div>
+
+<button (click)="onSubmit()">Aceptar</button>

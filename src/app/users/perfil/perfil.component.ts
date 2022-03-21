@@ -1,6 +1,6 @@
 import { UserServices } from 'src/app/servicios/servicios.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -13,7 +13,7 @@ export class PerfilComponent implements OnInit {
   currentUser: any = {};
   
 
-  constructor(private userServices: UserServices, private actRoute: ActivatedRoute) {
+  constructor(private userServices: UserServices, private actRoute: ActivatedRoute, public router:Router) {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.userServices.getUserProfile(id!).subscribe(res => {
       this.currentUser = res.msg;
@@ -22,6 +22,7 @@ export class PerfilComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    // console.log(this.currentUser)
   }
 
   /*saboresUsuario (){
@@ -31,4 +32,8 @@ export class PerfilComponent implements OnInit {
     });
   }
   */
+
+  infoHelados() {
+    this.router.navigateByUrl('/sabores');
+  }
 }

@@ -1,3 +1,4 @@
+import { UserServices } from 'src/app/servicios/servicios.service';
 import { Sabor, userSabor } from 'src/app/Core/models/sabor';
 import { SaboresService } from './../../Core/services/sabores.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,14 +15,20 @@ export class CrearheladoComponent implements OnInit {
   public  saborform: FormGroup;
   public submitted: boolean = false;
   public Saboreslistselect: any[]=[];
-public seleccionado: string[] =[];
+  public seleccionado: string[] =[];
 
-  constructor(public saboreservice: SaboresService, private formbuilder:FormBuilder, public router: Router, private actRoute: ActivatedRoute) {
+  currentUser: any = {};
+
+
+  constructor(public saboreservice: SaboresService, private formbuilder:FormBuilder, public router: Router, private actRoute: ActivatedRoute, private userServices: UserServices) {
     this.saborform = this.formbuilder.group({
       saboradd: String,
       
     
     })
+
+
+    
     this.saboreservice.getSabores().forEach(element => {
      
       this.saboresList.push(element)
@@ -31,6 +38,12 @@ public seleccionado: string[] =[];
     }); }
 
   ngOnInit(): void {
+    console.log("Hola");
+    let id = this.actRoute.snapshot.paramMap.get('id');
+    this.userServices.getUserProfile(id!).subscribe(res => {
+      this.currentUser = res.msg;
+      console.log(this.currentUser);
+    })
   }
   public onSubmit (): void {
     this.submitted = true;
@@ -44,7 +57,7 @@ public seleccionado: string[] =[];
     this.saboreservice.saborregister(saborregister, id).subscribe((res:any)=>{
      
        
-        this.router.navigate([''])
+        this.router.navigate(['/perfil/' + this.userServices.getIdByToken()])
       console.log(res)
     })
     this.saborform.reset();
@@ -68,5 +81,24 @@ public seleccionado: string[] =[];
   }
    console.log(this.saborselection)
   }
+
+
+
+  addChooseByUserSabor() {
+
+    // recorrer saboresList y ver si conincide con alguno de los sabores que t iene el usuario guardado, en ese caso tienes que cambiar la propiedad chooseByUser = true
+
+    // 'Nata'   
+    // var contiene=  currentUser.sabor.contains('Nata')
+    // (Sabor)   x.cooseByUser=true;
+    // al final, fuera del bucle, tienes que devolver una nueva lista con todos los sabores actualizados
+
+
+
+
+  }
+
+
+
 
 }
