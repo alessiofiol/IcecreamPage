@@ -47,10 +47,5 @@ export class PerfilComponent implements OnInit {
   }
 recoversaboresfav() {
 
-for (const iterator of this.saboresList[0].sabor) {
-  console.log(iterator)
-  
-}}
-
 }
-
+}
