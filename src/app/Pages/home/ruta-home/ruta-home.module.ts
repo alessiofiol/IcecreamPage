@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RutaHomeRoutingModule } from './ruta-home-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,6 +13,8 @@ import { RutaHomeRoutingModule } from './ruta-home-routing.module';
   imports: [
     CommonModule,
     RutaHomeRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ]
 })

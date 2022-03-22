@@ -29,7 +29,8 @@ import { LoginModule } from './users/login-area/login/ruta/login.module';
     HttpClientModule,
     RegisterModule,
     LoginModule,
-    PerfilModule
+    PerfilModule,
+    
   ],
   providers: [
     UserServices,
