@@ -33,15 +33,16 @@ export class SaboresComponent implements OnInit {
   }
 
 nextPage(){
-  this.page += 5;
+
+  this.page += 6;
 }
 prevPage(){
   if(this.page>0)
-  this.page -= 5;
+  this.page -= 6;
 }
 
-  onSearchSabor(search:string){
-    this.search = search;
+onSearchSabor(search:string){
+  this.search = search;
 
   }
 

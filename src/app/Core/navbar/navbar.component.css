@@ -14,7 +14,7 @@
 }
 
 .container{
-    max-width: 1200px;
+    max-width: 100%;
     width: 90%;
     margin: auto;
 }
@@ -43,8 +43,7 @@
     display: flex;
 }
 .logo{
-    order: 1;
-    font-size: 2.3rem;
+justify-items: flex-start;
 }
 img{
   width: 150px;
