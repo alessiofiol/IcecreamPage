@@ -38,12 +38,31 @@ export class CrearheladoComponent implements OnInit {
     }); }
 
   ngOnInit(): void {
-    console.log("Hola");
+    //console.log("Hola");
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.userServices.getUserProfile(id!).subscribe(res => {
       this.currentUser = res.msg;
-      console.log(this.currentUser);
+      console.log(this.currentUser.sabor);
+
+      let heladosCliente: any[] = [];
+      
+      this.currentUser.sabor.forEach((saborHelado: any) => {
+        console.log(saborHelado)
+        heladosCliente.push(saborHelado);
+      });
+      console.log("Estos son los sabores en User")
+
+      console.log(this.saborselection)
+      console.log("Estos son los sabores seleccionados")
+
+      console.log(heladosCliente)
+
+      
+
     })
+
+    
+    
 
     //Hacer un bucle que haga push de todos los sabores que tiene el currentUser, el push tiene que ir saborselection
   }
@@ -97,13 +116,14 @@ export class CrearheladoComponent implements OnInit {
     this.saborselection.splice(index, 1);
   }
   }
-  //  console.log(this.saborselection)
+   console.log(this.saborselection)
   }
 
 
 
   addChooseByUserSabor() {
 
+    
     // recorrer saboresList y ver si conincide con alguno de los sabores que t iene el usuario guardado, en ese caso tienes que cambiar la propiedad chooseByUser = true
 
     // 'Nata'   
