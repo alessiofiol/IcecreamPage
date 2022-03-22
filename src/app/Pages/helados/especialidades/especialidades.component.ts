@@ -40,6 +40,7 @@ export class EspecialidadesComponent implements OnInit {
   }
 
   onSearchEspecialidades(search:string){
+    this.page = 0;
     this.search = search;
 
   }

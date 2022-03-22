@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 import { EspecialidadesRoutingModule } from './especialidades-routing.module';
 import { FilterespecialPipe } from 'src/app/shared/pipes/filterespecial.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FilterespecialPipe } from 'src/app/shared/pipes/filterespecial.pipe';
     CommonModule,
     EspecialidadesRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     FormsModule
   ]
 })

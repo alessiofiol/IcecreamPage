@@ -5,6 +5,7 @@ import { SaboresComponent } from './../sabores.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SaboresRoutingModule } from './sabores-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SaboresRoutingModule } from './sabores-routing.module';
     CommonModule,
     SaboresRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     FormsModule
   ]
 })
