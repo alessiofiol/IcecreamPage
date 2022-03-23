@@ -102,19 +102,6 @@ export class CrearheladoComponent implements OnInit {
 
 
 
-  addChooseByUserSabor() {
-
-    // recorrer saboresList y ver si conincide con alguno de los sabores que t iene el usuario guardado, en ese caso tienes que cambiar la propiedad chooseByUser = true
-
-    // 'Nata'   
-    // var contiene=  currentUser.sabor.contains('Nata')
-    // (Sabor)   x.cooseByUser=true;
-    // al final, fuera del bucle, tienes que devolver una nueva lista con todos los sabores actualizados
-
-
-
-
-  }
 
 
 
