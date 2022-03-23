@@ -1,4 +1,64 @@
+<div class="row">
+<header>
 
-<p>Bienvenido a nuestra heladeria!</p>
+    <div class="overlay">
+    <div id="vimeohero">
+      <iframe src="https://www.youtube.com/embed/AlmAWczZt-I?controls=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <div class="container h-100">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white">
+          <h1 class="display-3">Video Header</h1>
+          <p class="lead mb-0">Using HTML5 Video and Bootstrap</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+  </header>
+  
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+      <p>
+        
+      </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
+  <div class="container">
+  <div *ngFor="let item of saboresList; index as i">
+      <p>{{item.sabor}}</p>
+      <p>{{item.image}}</p>
+  </div>
+     
+     <p>
+       <select  class="select" name="miselect"  (change)="onchangesabor(seleccionado)" [(ngModel)]="seleccionado">
+       <option [value]="item.image" *ngFor="let item of saboresList[0]">{{item.sabor}}</option>
+       </select>
+      </p>
+       
+     
+  
+
+  <body class='snippet-body'>
+    <div class="card">
+<div class="card-img"><img src="{{seleccionado}}" alt=""></div>
+
+<div *ngFor="let item of saborselection" class="card-body">
+<span class="bg"></span>
+<span class="bg"></span>
+<span class="bg"></span>
+<div class="content">
+<h2 class="title">{{item.sabor}} </h2>
+<p class="para">{{item.descripcion}}</p>
+</div>
+</div>
+</div>
+    <script type='text/javascript'></script>
+    </body>
+    

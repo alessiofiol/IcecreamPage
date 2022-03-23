@@ -15,12 +15,20 @@
 
 
   <ul class="menu-items">
-        <li style="list-style: none" class="nav-item"  *ngFor="let item of menuItem">
-            <a class="link-info" style="text-decoration: none" [routerLink]="[item.url]">
-                {{item.label}}
+        <li style="list-style: none" class="nav-item">
+            <a class="link-info" style="text-decoration: none" [routerLink]="['/']">
+                Home
             </a>
 
         </li>
+        <li style="list-style: none" class="nav-item" >
+          <a class="link-info" style="text-decoration: none" [routerLink]="['/helados']">
+            <i class="fas fa-bomb"></i>
+         <span class="d-none d-sm-inline">Helados</span>
+              
+          </a>
+
+      </li>
 
         <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer; list-style: none" class="nav-item" >Login</li>
 
