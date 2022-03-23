@@ -2,38 +2,30 @@
 
 <section class="gradient-custom-1" >
     <h1>Sabores</h1>
-    <div class="search">
-      <button class="return"
-      [routerLink]="'/helados'">
-      Volver a Helados
-      </button>
-      <div class="search_name">
-        <label for="searchName">Busca tu sabor....</label>
-        <input type="text"
-        class="search_input"
-        placeholder="Busca tu sabor..."
-        #txtSearch
-        (keyup)="onSearchSabor(txtSearch.value)"/>
-      </div>
+      <div class="search">
+        <button class="return"
+        [routerLink]="'/helados'">
+        Volver a Helados
+        </button>
+        <div class="search_name">
+          <label for="searchName">Busca tu sabor....</label>
+          <input type="text"
+          class="search_input"
+          placeholder="Busca tu sabor..."
+          #txtSearch
+          (keyup)="onSearchSabor(txtSearch.value)"/>
+        </div>
     </div>
 
     <div class="card" *ngFor="let sabores of saboresList | filtersabor:page:search">
       <h3>{{sabores.sabor}}</h3>
-
       <img src="{{sabores.image}}" alt="{{sabores.sabor}}">
       <p>{{sabores.descripcion}}</p>
     </div>
-
 </section>
+
 <div class="button-container">
-  <button
-  (click)="nextPage()"
-  [disabled]="(saboresList | filtersabor:page:search).length === 0">
-    Siguentes
-</button>
-  &nbsp;
-  <button
-  (click)="prevPage()">
-  Anteriores
-  </button>
+    <button (click)="nextPage()"[disabled]="(saboresList | filtersabor:page:search).length === 0"> Siguentes </button>
+    &nbsp;
+    <button (click)="prevPage()"> Anteriores </button>
 </div>

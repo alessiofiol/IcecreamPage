@@ -1,4 +1,66 @@
-.card-deck {
-    display: flex;
-    justify-content: center;
+section{
+  background-color:  #E6D2B4;
+  max-width: 100%;
+}
+.container{
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 20px;
+  max-width: 100%;
+}
+.perfil{
+  margin-bottom: 100px;
+  margin-left: 0;
+}
+.usuario{
+  align-content: center;
+  font-weight: 800;
+  font-size: large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rgb(56, 9, 9);
+}
+h2{
+  align-content: center;
+  font-weight: 800;
+  font-size:xx-large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rgb(56, 9, 9);
+}
+p{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rgb(56, 9, 9);
+}
+
+.card{
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  padding:14px;
+  width:100%;
+  height:auto;
+  border: 0ch;
+  background-color:  #E6D2B4;
+}
+.card-body{
+  margin:30px;
+}
+
+.card-text{
+  margin-left: 40px;
+  font-weight: 800;
+  font-size: large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rgb(56, 9, 9);
+}
+
+button{
+  float:right;
+  width: 70px;
+  height: 30px;
+  background-color: rgb(56, 9, 9);
+  color:#E6D2B4;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 50px;
+  margin-top: 150px;
 }

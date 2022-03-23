@@ -9,13 +9,10 @@ import { HttpRequestService } from 'src/app/shared/sevicios/http-request.service
 })
 export class SaboresComponent implements OnInit {
   private baseUrl: string ='https://apiserverfinal.herokuapp.com/';
-
   public saboresUrl = this.baseUrl + 'sabores';
-
   public saboresList:Ihelados []=[];
   public search:string ="";
   public page:number= 0;
-
 
   constructor(public httpRequestService: HttpRequestService) { }
 
@@ -27,8 +24,7 @@ export class SaboresComponent implements OnInit {
 
   public RecoverSaboresData(){
     this.httpRequestService.getData(this.saboresUrl).subscribe((data:any)=>{
-      this.saboresList=data;
-
+    this.saboresList=data;
     })
   }
 

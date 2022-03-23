@@ -6,14 +6,11 @@
   text-align: center;
   justify-content:center;
   background-color: #E6D2B4;
-
-
 }
 .container{
   margin:40px;
 }
 h2{
-
   text-align: center;
   align-content: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -26,8 +23,6 @@ h2{
   align-items: center;
   margin-top:20px;
   margin-bottom: 20px;
-
-
 }
 a{
   text-decoration: none;
@@ -38,11 +33,9 @@ p{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
     color: rgb(56, 9, 9);
-
 }
 
 .especial{
-
   justify-content:center;
   flex-wrap: wrap;
   padding:14px;

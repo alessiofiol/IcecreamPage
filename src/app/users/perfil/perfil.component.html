@@ -1,23 +1,25 @@
-<div>
-    <h2>User Profile</h2>
+
+<section>
+  <div class="container">
+<div class="perfil">
+    <h3 class="usuario">Perfil Usuario</h3>
     <p>Name: {{this.currentUser?.name}}</p>
-    <p>Email: {{this.currentUser?.email}}</p>    
-    <p>Id: {{this.currentUser?._id}}</p>
-    <div *ngFor="let sabor of this.currentUser?.sabor">
-    <p >{{sabor.sabor}}</p> </div>
+    <p>Email: {{this.currentUser?.email}}</p>
 </div>
 
-
-    <div class="card-deck">
-        <div class="card" style="width: 18rem;" *ngFor="let sabor of this.currentUser.sabor">
+<h2>Mis favoritos</h2>
+    <div class="card">
+        <div *ngFor="let sabor of this.currentUser.sabor">
             <div class="card-body">
-                <p class="card-text">{{sabor.sabor}}</p>
-                <img class="card-text" src="{{sabor.image}}">
-                <button type="button" class="btn btn-primary" (click)="infoHelados();">Detalles</button>
+                <h3 class="card-text">{{sabor.sabor}}</h3>
+                <img src="{{sabor.image}}">
+                <button type="button"  (click)="infoHelados();">Detalles</button>
             </div>
         </div>
     </div>
-    
+  </div>
 
 
 <!--<button (click)="saboresUsuario()">Sabores</button> -->
+
+</section>
