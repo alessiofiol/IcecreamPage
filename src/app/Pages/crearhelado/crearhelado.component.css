@@ -3,3 +3,41 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.card {
+    border: none;
+    margin: 10px;
+}
+
+.card-body {
+    text-align: center;
+    background-color:  #E6D2B4;
+}
+
+.gradient-custom-1{
+    display: flex;
+    flex-wrap: wrap;
+    background-color:  #E6D2B4;
+    justify-content: center;
+  
+  
+  }
+
+  button{
+    float:right;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(56, 9, 9);
+    color:#E6D2B4;
+    font-weight: 700;
+    font-size: 15px;
+    margin-right: 50px;
+  }
+
+  h3{
+    align-content: center;
+    font-weight: 800;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:rgb(56, 9, 9);
+  }
