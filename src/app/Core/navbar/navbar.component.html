@@ -26,7 +26,7 @@
 
         <li *ngIf="this.userServices.isLoggedin()" (click)="navPerfil()" style="cursor: pointer; list-style: none" class="nav-item" >Perfil</li>
 
-        <li *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer; list-style: none" class="nav-item" >Crea tu helado</li>
+        <li *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer; list-style: none" class="nav-item" >Favoritos</li>
 
         <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" style="cursor: pointer; list-style: none" class="nav-item">Cerrar sesion</li>
 
