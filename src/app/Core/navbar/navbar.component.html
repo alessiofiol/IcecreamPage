@@ -3,38 +3,75 @@
 
     <input type="checkbox" name="" id="">
     <div class="hamburger-lines">
-        <span class="line line1"></span>
-        <span class="line line2"></span>
-        <span class="line line3"></span>
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
     </div>
 
-<div class="logo">
-  <img src="https://i.pinimg.com/originals/13/dd/86/13dd861b67acc6e4bba44d93db4fc1ee.png" alt="logo">
-</div>
+    <div class="logo">
+      <img src="https://i.pinimg.com/originals/13/dd/86/13dd861b67acc6e4bba44d93db4fc1ee.png" alt="logo">
+    </div>
 
-  <ul class="menu-items">
-        <li style="list-style: none" class="nav-item">
-            <a class="link-info" style="text-decoration: none" [routerLink]="['/']">
-                Home
-            </a>
-        </li>
-        <li style="list-style: none" class="nav-item" >
-          <a class="link-info" style="text-decoration: none" [routerLink]="['/helados']">
-            <i class="fas fa-bomb"></i>
-         <span class="d-none d-sm-inline">Helados</span>
-              
-          </a>
+    <ul class="menu-items">
+      <li style="list-style: none" class="nav-item ">
+        <a class="link-info d-flex flex-column align-items-center" style="text-decoration: none" [routerLink]="['/']">
+          Home
+          <svg id="i-home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none"
+            stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M12 20 L12 30 4 30 4 12 16 2 28 12 28 30 20 30 20 20 Z" />
+          </svg>
+        </a>
+
+      </li>
+      <li style="list-style: none" class="nav-item">
+        <a class="nav-item link-info link-info d-flex flex-column align-items-center" style="text-decoration: none; "
+          [routerLink]="['/helados']">
+          <span class="d-none d-sm-inline">Helados</span>
+          <i class='fas fa-ice-cream' style='font-size:30px;color:rgb(132,58,95)'></i>
+        </a>
 
       </li>
 
-        <li *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer; list-style: none" class="nav-item" >Login</li>
+      <li style="list-style: none" class="nav-item ">
+      <a class="link-info d-flex flex-column align-items-center" *ngIf="!this.userServices.isLoggedin()" (click)="navLogin()" style="cursor: pointer; list-style: none; "
+        >Login  <svg id="i-signin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+          <path d="M3 16 L23 16 M15 8 L23 16 15 24 M21 4 L29 4 29 28 21 28" />
+      </svg>
+      </a>
+    </li>
 
-        <li *ngIf="this.userServices.isLoggedin()" (click)="navPerfil()" style="cursor: pointer; list-style: none" class="nav-item" >Perfil</li>
 
-        <li *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer; list-style: none" class="nav-item" >Favoritos</li>
+      <li style="list-style: none" class="nav-item">
+        <a *ngIf="this.userServices.isLoggedin()" (click)="navPerfil()" style="cursor: pointer;"
+          class="link-info link-info d-flex flex-column align-items-center"> Perfil
 
-        <li *ngIf="this.userServices.isLoggedin()" class="nav-link" (click)="doLogout()" role="button" style="cursor: pointer; list-style: none" class="nav-item">Cerrar sesion</li>
+          <svg id="i-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none"
+            stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path
+              d="M22 11 C22 16 19 20 16 20 13 20 10 16 10 11 10 6 12 3 16 3 20 3 22 6 22 11 Z M4 30 L28 30 C28 21 22 20 16 20 10 20 4 21 4 30 Z" />
+          </svg></a>
+      </li>
+      <li style="list-style: none" class="nav-item">
+        <a *ngIf="this.userServices.isLoggedin()" (click)="navCrearHelado()" style="cursor: pointer;"
+          class="link-info link-info d-flex flex-column align-items-center">
+          Favoritos
+          <svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none"
+            stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path
+              d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
+          </svg>
+        </a>
 
+      </li>
+      <li style="list-style: none" class="nav-item">
+        <a *ngIf="this.userServices.isLoggedin()" class="link-info link-info d-flex flex-column align-items-center"
+          (click)="doLogout()" role="button" style="cursor: pointer; list-style: none">Cerrar sesion
+          <svg id="i-signout" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none"
+            stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
+          </svg>
+        </a>
+      </li>
     </ul>
   </div>
 
