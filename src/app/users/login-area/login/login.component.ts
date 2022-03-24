@@ -35,12 +35,7 @@ export class LoginComponent implements OnInit {
 
   public logUserSubmit(): void{
     
-    
-    
-    console.log("primera linea")
     this.submitted = true;
-
-    
 
     if(this.loginForm.valid){
 
@@ -49,10 +44,8 @@ export class LoginComponent implements OnInit {
         name: "",
         email: this.loginForm.get('email')?.value,
         password: this.loginForm.get('password')?.value,
-        //repassword: this.loginForm.get('repassword')?.value,
         };
-        console.log("USUARIO", userI);   
-        console.log("logUserSubmit");
+        //console.log("USUARIO", userI);  
         this.userServices.logUser( userI )
           .subscribe((res)=>{
             localStorage.setItem('access_token', res.token)
@@ -66,19 +59,9 @@ export class LoginComponent implements OnInit {
                 this.showMsgError=true;
               }
           )};
-        console.log("paso el logUser");
-
+        //console.log("paso el logUser");
         
-
-        
-        //this.loginForm.reset();
-        this.submitted = false;
-        //this.router.navigate(['/login']);
-        
-        
-        
-    
-      
+        this.submitted = false
         
   }
 
@@ -87,32 +70,3 @@ export class LoginComponent implements OnInit {
     };
 }
 
-
-/*
-export class LoginComponent implements OnInit {
-
-  constructor(private userServices: UserServices) { }
-
-  ngOnInit(): void {
-  }
-
-  LoginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''), 
-  })
-
-  logUser() {
-    
-    this.userServices.logUser({
-      "_id": "",
-      "name": "",
-      "email": this.LoginForm.get('email')!.value,
-      "password": this.LoginForm.get('password')!.value
-    });
-
-    console.log("Usuario logado");
-
-  }
-
-}
-*/

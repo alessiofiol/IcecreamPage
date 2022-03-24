@@ -34,16 +34,6 @@ export class UserServices {
   constructor(private http:HttpClient, public router:Router) { }
 
   
-
-  /*createNewUser(datos:UserInterface) {
-    console.log("USUARIO datos",    JSON.stringify(datos)  );   
-
-     this.http.post<any>(this.userUrl + '/' + 'registerUser', 
-    datos).subscribe((res)=>{
-       console.log(res);
-     })
-  } */
-
   createNewUser(datos: UserInterface): Observable<any> {
     let api = `${this.userUrl}/registerUser`;
     //console.log("entro a crear el user")
@@ -59,37 +49,6 @@ export class UserServices {
       catchError(this.handleError)
     )    
   }
-    
-    
-    
-    
-    
-    
-    /* .subscribe((res)=>{
-    localStorage.setItem('access_token', res.token)
-    this.getUserProfile(res._id).subscribe((res) => {
-      this.currentUser = res;
-      this.router.navigate([''])
-      })
-    })
-  } */
-
-  /* logUser(datos: UserI) {
-    return this.http.post<any>(`${this.userUrl}/signin`, datos)
-      .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token)
-				//Seteamos el token
-        this.getUserProfile(res._id).subscribe((res) => {
-          this.currentUser = res;
-          this.currentID = res.msg._id;
-          this.router.navigate(['perfil/' + res.msg._id])
-          .then(() => {
-            window.location.reload();
-          })
-				//Volvemos al user-profile una vez ejecutada la función
-        })
-      })
-  } */
 
   getUserProfile(_id: string): Observable<any> {
     let api = `${this.baseUrl}users/${_id}`;
@@ -112,10 +71,10 @@ export class UserServices {
     var token = localStorage.getItem('access_token');
     if (token !== null) {
     var decoded:Token;
-    console.log("aqui viene el toke");
+    
     decoded = jwt_decode(token!);
-    console.log(decoded);
-    console.log(decoded['userId'])
+    //console.log(decoded);
+    //console.log(decoded['userId'])
     return decoded['userId']
     } else {
       return "1234"

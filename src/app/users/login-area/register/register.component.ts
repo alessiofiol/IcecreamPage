@@ -42,30 +42,26 @@ export class RegisterComponent implements OnInit {
   
 
   public createNewUserSubmit(): void{
-    console.log("primera linea")
-    this.submitted = true;
-
     
+    this.submitted = true;
 
     if(this.registerForm.valid){
 
       
-
       const user: UserInterface = {
         _id: "",
         name: this.registerForm.get('name')?.value,
         email: this.registerForm.get('email')?.value,
         password: this.registerForm.get('password')?.value,
-        //repassword: this.registerForm.get('repassword')?.value,
+        
         };
-        console.log("USUARIO", user);   
-        console.log("createNewUserSubmit");
-        //this.userServices.createNewUser( user );
+        
         this.userServices.createNewUser(this.registerForm.value)
           .subscribe((res) => {
           if (res.result) {
             this.registerForm.reset();
             this.showMsg= true;
+            this.router.navigate(['/login'])
           } 
           }, (err) => {
             console.error(err);
@@ -74,9 +70,9 @@ export class RegisterComponent implements OnInit {
         )};
 
         
-        //this.registerForm.reset();
+        
         this.submitted = false;
-        //this.router.navigate(['/login']);
+        
         
         
       }
