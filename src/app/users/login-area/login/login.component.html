@@ -12,6 +12,10 @@
                     <h4 class="mt-1 mb-5 pb-1">Inicio de sesión</h4>
                   </div>
 
+                    <div *ngIf="showMsgError" class="alert alert-danger">
+                      <p>Error, el usuario y/o la contraseña no coinciden</p>                        
+                    </div>
+
                     <form [formGroup]="loginForm" (ngSubmit)='logUserSubmit()' >                       
                         
                         <div class="form-outline mb-4">

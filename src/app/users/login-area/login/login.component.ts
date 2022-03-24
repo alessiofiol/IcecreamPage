@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
   public submitted: boolean = false;
+  showMsgError: boolean = false;
 
   constructor(private formBuilder: FormBuilder, public router:Router, private userServices: UserServices) { 
     this.loginForm = this.formBuilder.group({
@@ -52,8 +53,22 @@ export class LoginComponent implements OnInit {
         };
         console.log("USUARIO", userI);   
         console.log("logUserSubmit");
-        this.userServices.logUser( userI );
+        this.userServices.logUser( userI )
+          .subscribe((res)=>{
+            localStorage.setItem('access_token', res.token)
+            this.userServices.getUserProfile(res._id)
+            .subscribe((res) => {
+              this.userServices.currentUser = res;
+              this.router.navigate(['/home'])
+            })
+          }, (err) => {
+                console.log(err);
+                this.showMsgError=true;
+              }
+          )};
         console.log("paso el logUser");
+
+        
 
         
         //this.loginForm.reset();
@@ -61,9 +76,11 @@ export class LoginComponent implements OnInit {
         //this.router.navigate(['/login']);
         
         
-      }
+        
+    
       
-    }
+        
+  }
 
     navRegister() {
       this.router.navigateByUrl('/registro');

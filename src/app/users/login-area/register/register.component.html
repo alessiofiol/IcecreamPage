@@ -27,6 +27,10 @@
                         <a (click)="btnClick()" class="alert-link" style="cursor: pointer">Login</a>
                     </div>
 
+                    <div *ngIf="showMsgError" class="alert alert-danger">
+                        <p>Error, el usuario ya existe, por favor utilice otro correo</p>                        
+                    </div>
+
 
                     <div class="form-outline mb-4">
                         <label class="form-label" for="name">Nombre</label>

@@ -35,36 +35,46 @@ export class UserServices {
 
   
 
-  createNewUser(datos:UserInterface) {
+  /*createNewUser(datos:UserInterface) {
     console.log("USUARIO datos",    JSON.stringify(datos)  );   
 
      this.http.post<any>(this.userUrl + '/' + 'registerUser', 
     datos).subscribe((res)=>{
        console.log(res);
      })
-  } 
+  } */
 
-  /*createNewUser(datos: UserInterface): Observable<any> {
-    let api = `${this.userUrl}registerUser`;
-    console.log("entro a crear el user")
-    return this.http.post<any>(api, datos)
+  createNewUser(datos: UserInterface): Observable<any> {
+    let api = `${this.userUrl}/registerUser`;
+    //console.log("entro a crear el user")
+    return this.http.post(api, datos)
       .pipe(
         catchError(this.handleError)
-      )
-    
-  }*/
+      )    
+  }
 
-  /*public logUser(datos: UserI){
-    return this.http.post<any>(`${this.userUrl}/signin`, datos).subscribe((res)=>{
+  public logUser(datos: UserI): Observable<any> {
+    return this.http.post<any>(`${this.userUrl}/signin`, datos)
+    .pipe(
+      catchError(this.handleError)
+    )    
+  }
+    
+    
+    
+    
+    
+    
+    /* .subscribe((res)=>{
     localStorage.setItem('access_token', res.token)
     this.getUserProfile(res._id).subscribe((res) => {
       this.currentUser = res;
       this.router.navigate([''])
       })
     })
-  }*/
+  } */
 
-  logUser(datos: UserI) {
+  /* logUser(datos: UserI) {
     return this.http.post<any>(`${this.userUrl}/signin`, datos)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.token)
@@ -79,17 +89,17 @@ export class UserServices {
 				//Volvemos al user-profile una vez ejecutada la función
         })
       })
-  }
+  } */
 
   getUserProfile(_id: string): Observable<any> {
-    //let api = `https://apiserverfinal.herokuapp.com/users/622354817c41bb8038d8772c`;
     let api = `${this.baseUrl}users/${_id}`;
-    //console.log(`${id}`)
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res: any) => {
         return res || {}
       }),
-      catchError(this.handleError)
+      catchError(err => {
+        throw new Error(err.message);
+      })
     )
   }
 

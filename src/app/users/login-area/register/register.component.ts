@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   public submitted: boolean = false;
   showMsg: boolean = false;
+  showMsgError: boolean = false;
 
   constructor(private formBuilder: FormBuilder, public router:Router, public userServices: UserServices) { 
     this.registerForm = this.formBuilder.group({
@@ -59,24 +60,37 @@ export class RegisterComponent implements OnInit {
         };
         console.log("USUARIO", user);   
         console.log("createNewUserSubmit");
-        this.userServices.createNewUser( user );
+        //this.userServices.createNewUser( user );
+        this.userServices.createNewUser(this.registerForm.value)
+          .subscribe((res) => {
+          if (res.result) {
+            this.registerForm.reset();
+            this.showMsg= true;
+          } 
+          }, (err) => {
+            console.error(err);
+            this.showMsgError=true;
+          }
+        )};
 
-
-        this.showMsg= true;
-        this.registerForm.reset();
+        
+        //this.registerForm.reset();
         this.submitted = false;
         //this.router.navigate(['/login']);
         
         
       }
       
+      navLogin() {
+        this.router.navigateByUrl('/login');
+      };
+  
     }
 
-    navLogin() {
-      this.router.navigateByUrl('/login');
-    };
 
-  }
+
+
+    
 
 
 
