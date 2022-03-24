@@ -38,11 +38,11 @@ export class CrearheladoComponent implements OnInit {
     }); }
 
   ngOnInit(): void {
-    console.log("Hola");
+    
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.userServices.getUserProfile(id!).subscribe(res => {
       this.currentUser = res.msg;
-      console.log(this.currentUser);
+      //console.log(this.currentUser);
     })
 
     //Hacer un bucle que haga push de todos los sabores que tiene el currentUser, el push tiene que ir saborselection
@@ -60,7 +60,7 @@ export class CrearheladoComponent implements OnInit {
      
        
         this.router.navigate(['/perfil/' + this.userServices.getIdByToken()])
-      console.log(res)
+      //console.log(res)
     })
     this.saborform.reset();
     this.submitted = false;
@@ -97,7 +97,7 @@ export class CrearheladoComponent implements OnInit {
     this.saborselection.splice(index, 1);
   }
   }
-   console.log(this.saborselection)
+   //console.log(this.saborselection)
   }
 
 

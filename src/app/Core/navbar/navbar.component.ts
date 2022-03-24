@@ -18,12 +18,7 @@ export class NavbarComponent implements OnInit {
   public menuItem: Menuitem[] = [
     { label: 'Home', url: '/' },
     { label: 'Helados', url: '/helados' },
-    //{ label: 'Perfil', url: '/perfil/' + this.userServices.getIdByToken()},
-    //{ label: 'crearhelados', url: '/crearhelados' },
-
-   
-    //El problema es que la ruta no se actualiza, no se actualiza al logear, porque al principio del todo no hay token, por eso la ruta no funciona
-    //Hay que hacer que la ruta se actualice al hacer login
+    
   ]
   
 
