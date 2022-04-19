@@ -1,34 +1,62 @@
 <section class="gradient-custom-1">
-  <h1>Sabores</h1>
-  <div class="search">
-    <button class="return" [routerLink]="'/helados'">
-      <svg id="i-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <path d="M10 6 L2 16 10 26 M2 16 L30 16" />
-    </svg>  Volver  
-    </button>
-    <div class="search_name">
-      <label for="searchName">Busca tu sabor....</label>
-      <input type="text" class="search_input" placeholder="Busca tu sabor..." #txtSearch
-        (keyup)="onSearchSabor(txtSearch.value)" />
-    </div>
-  </div>
+<div class="container-fluid"> 
+  <br>
 
-  <div class="card" *ngFor="let sabores of saboresList | filtersabor:page:search">
-    <h3>{{sabores.sabor}}</h3>
-    <img src="{{sabores.image}}" alt="{{sabores.sabor}}">
-    <p>{{sabores.descripcion}}</p>
-  </div>
+  
+
+   <button class="btn-grad" [routerLink]="'/helados'">
+    <svg id="i-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <path d="M10 6 L2 16 10 26 M2 16 L30 16" />
+  </svg>    
+  </button>
+  <h1 class="display-2 text-center">Sabores</h1>
+
+</div>
+<div class="container">
+  <br>
+
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Busca tu sabor..." #txtSearch (keyup)="onSearchSabor(txtSearch.value)">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  <div class="container mt-2">
+
+    <br>
+      <div class="row">
+        <ng-container *ngFor="let sabores of saboresList | filtersabor:page:search">
+        <div class="col-md-4">
+          <div class="card card-block">
+        <img class="img-thumbnail" src="{{sabores.image}}" alt="{{sabores.sabor}}">
+            <h5 class="card-title">{{sabores.sabor}}</h5>
+            <p class="card-text">{{sabores.descripcion}}</p> 
+      </div>
+        </div>
+       </ng-container>
+       
+       
+      </div>
+      
+    </div>
+    
 </section>
 
 <div class="button-container">
-  <button class="link-info d-flex flex-column align-items-center" (click)="nextPage()"
+  <button class="btn-grad" (click)="prevPage()"> Anteriores <svg id="i-backwards" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M16 2 L2 16 16 30 16 16 30 30 30 2 16 16 Z" />
+</svg></button>
+&nbsp;
+
+  <button class="btn-grad" (click)="nextPage()"
     [disabled]="(saboresList | filtersabor:page:search).length === 0"> Siguientes <svg id="i-forwards"
       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor"
       stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
       <path d="M16 2 L30 16 16 30 16 16 2 30 2 2 16 16 Z" />
     </svg></button>
-  &nbsp;
-  <button class="link-info d-flex flex-column align-items-center" (click)="prevPage()"> Anteriores <svg id="i-backwards" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M16 2 L2 16 16 30 16 16 30 30 30 2 16 16 Z" />
-</svg></button>
-</div>
+  </div>

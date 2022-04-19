@@ -1,67 +1,18 @@
 <div class="row">
-<header>
+  <header>
 
     <div class="overlay">
-    <div id="vimeohero">
-      <iframe src="https://vlipsy.com/embed/i1tWBs3E" width="640" height="360" frameborder="0"></iframe>      <div class="container h-100">
-      <div class="d-flex h-100 text-center align-items-center">
-        <div class="w-100 text-white">
-          <h1 class="display-3">Bienvenido a nuestra Heladería</h1>
-          <p class="lead mb-0">Upgrade Hub</p>
+      <div id="vimeohero">
+        <iframe src="https://vlipsy.com/embed/i1tWBs3E" width="640" height="360" frameborder="0"></iframe>
+        <div class="container h-100">
+          <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+              <h1 class="display-3">Bienvenido a nuestra Heladería</h1>
+              <p class="lead mb-0">Upgrade Hub</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
   </header>
-  
-  <section class="my-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-      <p>
-        
-      </p>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-  <div class="container">
-  <div *ngFor="let item of saboresList; index as i">
-      <p>{{item.sabor}}</p>
-      <p>{{item.image}}</p>
-  </div>
-     
-     <p>
-       <select  class="form-select form-select-lg mb-3" name="miselect"  (change)="onchangesabor(seleccionado)" [(ngModel)]="seleccionado">
-       <option [value]="item.image" *ngFor="let item of saboresList[0]">{{item.sabor}}</option>
-       </select>
-      </p>
-       
-     
-  
-
-  <body class='snippet-body'>
-    <div class="card">
-<div class="card-img" style="
-  display: flex;
-  align-items:flex-start;
-  justify-content: center;
-"><img src="{{seleccionado}}" alt=""></div>
-
-<div *ngFor="let item of saborselection" class="card-body">
-<span class="bg"></span>
-<span class="bg"></span>
-<span class="bg"></span>
-<div class="content">
-<h2 class="title">{{item.sabor}} </h2>
-<p class="para">{{item.descripcion}}</p>
-</div>
-</div>
-</div>
-    <script type='text/javascript'></script>
-    </body>
-    

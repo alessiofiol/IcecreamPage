@@ -5,8 +5,6 @@
   <div class="card-deck">
     <div class="card" style="width: 18rem;" *ngFor="let sabor of this.saboresList[0]">
         <div class="card-body" >
-            <h3 class="card-text">{{sabor.sabor}}</h3> 
-            <img class="card-img" style="width: 12rem;" src={{sabor.image}}>
             <th>
               <input
                   
@@ -18,21 +16,73 @@
                   (change)="onchangesabor($event)"
                   
                   
-                  > <svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  >  <svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                     <path d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
                 </svg>
             </th>
             
+         
+          <img class="card-img" style="width: 12rem;" src={{sabor.image}}>
+            <h3 class="card-text">{{sabor.sabor}}</h3> 
+            
+          
         </div>
     </div>
   </div>
 </form>
-<button (click)="onSubmit()" class="btn btn-primary">Añadir a Favoritos</button>
 
 </section>
 
 
 
 
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <p>
 
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+<div *ngFor="let item of saboresList; index as i">
+  <p>{{item.sabor}}</p>
+  <p>{{item.image}}</p>
+</div>
+
+
+<div class="row justify-content-center">
+<button (click)="onSubmit()" class="btn-grad">
+  <svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="52" height="52" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
+</svg>  
+</button>
+
+</div>
+<body class='snippet-body'>
+  
+  <div  *ngFor="let item of saborselection"class="carta">
+  
+
+    <div class="carta-body">
+      <div class="frontitle">
+
+      <h2 class="card-text">{{item.sabor}} </h2>
+      <img class="card-img" src="{{item.image}}" alt="{{item.sabor}}">
+
+    </div>
+      <div class="content">
+        <h2 class="title">{{item.sabor}} </h2>
+        <p class="para">{{item.descripcion}}</p>
+        <img src="{{item.image}}" alt="{{item.sabor}}">
+      </div>
+    </div>
+  </div>
+  <script type='text/javascript'></script>
+
+</body>
 

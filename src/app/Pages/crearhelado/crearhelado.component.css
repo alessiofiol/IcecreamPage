@@ -2,17 +2,28 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);    border: 0ch;
+
 }
 
 .card {
-    border: none;
-    margin: 10px;
+  justify-content:center;
+  padding:14px;
+  align-items: center;
+  border-radius: 10%;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);    border: 0ch;
 }
+  .card:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+    border-radius: 10%;
+  
+  }
 
 .card-body {
     text-align: center;
-    background-color:  #E6D2B4;
-}
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);    border: 0ch;
+  }
 
 .gradient-custom-1{
     display: flex;
@@ -41,3 +52,120 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:rgb(56, 9, 9);
   }
+  
+
+
+
+body {
+  
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'roboto', sans-serif;
+  background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);  perspective: 1000px;
+  justify-content: center;
+}
+
+.carta {
+  width: 300px;
+  height: 470px;
+  transform-style: preserve-3d;
+  transition: 1s;
+}
+
+.carta-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size:280px;
+  border-radius: 20px;
+  transform: translateZ(40px);
+  
+}
+
+
+
+.carta-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, -40px)   ;
+  width: 85%;
+  height: 87%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 5px solid #fff;
+}
+
+.carta:hover {
+  transform: rotateY(360deg);
+}
+.frontitle {
+  font-size: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+  font-style: oblique;
+
+}
+.carta:hover .frontitle {
+display: none;}
+
+.carta-body .bg {
+  position: absolute;
+  background: #fff;
+  border-radius: 100px;
+  width: 0%;
+  transition: .5s;
+}
+
+
+
+.content {
+  position: relative;
+  opacity: 0;
+  transition: .5s;
+  padding: 40px 10px;
+  text-align: center;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #292929;
+  text-transform: uppercase;
+}
+
+.carta:hover .content {
+  opacity: 1;
+  transition-delay: 0.7s;
+
+}
+
+button{
+ 
+
+   
+ 
+  
+ background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff  51%, #ff6e7f  100%)}
+  .btn-grad {
+   padding: auto;
+   padding-bottom: 50px;
+     text-align: center;
+     text-transform: uppercase;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: rgb(0, 0, 0);            
+     box-shadow: 0 0 20px #eee;
+     border-radius: 10px;
+     
+   }
+
+   .btn-grad:hover {
+     background-position: right center; /* change the direction of the change here */
+     color: #fff;
+     text-decoration: none;
+   }
+  
+  
+  

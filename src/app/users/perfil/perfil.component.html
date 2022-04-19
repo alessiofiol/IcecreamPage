@@ -36,8 +36,10 @@
             <div class="card-body">
                 <h3 class="card-text">{{sabor.sabor}}</h3>
                 <img src="{{sabor.image}}">
-                <button type="button"  (click)="infoHelados();">Detalles</button>
-            </div>
+                  </div>
+                  <button class="btn-grad" [routerLink]="'/sabores'">
+                    detalles
+                </button>      
         </div>
     </div>
   </div>
